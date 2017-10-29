@@ -8,7 +8,6 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
     });
-
   };
 
   (function(d, s, id){
@@ -21,9 +20,12 @@ window.fbAsyncInit = function() {
 
    function statusChangeCallback(response){
      if(response.status == 'connected'){
-       console.log('Loggin in and authen');
+       localStorage.setItem('accessToken', response.authResponse.userID)
+      //  localtion.reload()
+       window.location.href = "adminroom.html"
        testAPI();
      } else {
+       window.location.href = index.html
        console.log('Not Connected');
      }
    }
@@ -42,6 +44,8 @@ window.fbAsyncInit = function() {
       })
     }
 
-    FB.logout(function(response) {
-    console.log('berhasil logout');
-    });
+    function logout(){
+      localStorage.removeItem('accessToken')
+      // location.reload();
+      // window.location.href = index.html
+    }
