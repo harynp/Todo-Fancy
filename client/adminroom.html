@@ -71,6 +71,8 @@
     </table>
   </div>
 </div>
+<button class="btn btn-danger" id="fbLogout" v-on:onclick="fbLogout()" type="button">LOGOUT</button>
+
 
 <script>
 
@@ -94,6 +96,14 @@ var taskApp = new Vue({
     },
   }
 });
+
+function fbLogout() {
+        FB.logout(function (response) {
+            //Do what ever you want here when logged out like reloading the page
+            window.location.reload();
+        });
+    }
 </script>
 </body>
+
 </html>
