@@ -28,7 +28,7 @@ class User {
       if(response.error){
         res.send(error)
       } else {
-        if(req.bodu.userId == response.id) {
+        if(req.body.userId == response.id) {
           Userdata.username = response.id
           Userdata.password = response.name
             Userdata.findOne({username: response.id})

@@ -16,6 +16,7 @@ var taskApp = new Vue({
         status: false
       })
       .then(response => {
+        console.log(response);
        this.tasks.push(response.data)
       })
       .catch(err => console.log(err))

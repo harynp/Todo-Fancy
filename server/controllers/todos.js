@@ -22,7 +22,12 @@ class Todos {
     Todo.remove({
       _id: req.params.id
     })
-    .then(deleteTodo => res.send(deleteTodo))
+    .then(deleteTodo => {
+      res.send({
+        message: 'Berhasil Hapus : ',
+        deleteTodo: req.params.id
+      })
+    })
     .catch(err => res.send(err))
   }
 
@@ -30,6 +35,8 @@ class Todos {
     Todo.findOneAndUpdate({
       _id: req.params.id
     }, {
+      description: req.body.description,
+      date: req.body.date,
       status: req.body.status
     })
     .then(statusTodo => req.send(statusTodo))

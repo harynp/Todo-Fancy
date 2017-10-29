@@ -62,8 +62,8 @@
         <tbody>
           <tr v-for='task in tasks'>
             <td><input type="checkbox" v-model="task.status"> Selesai </td>
-            <td><span class="{ taskDone: task.status }">{{ task.description }}</span></td>
-            <td><span class="{ taskDone: task.status }">{{ task.date }}</span></td>
+            <td><span>{{ task.description }}</span></td>
+            <td><span>{{ task.date }}</span></td>
             <td><button class="btn btn-danger btn-block" v-on:click="deleteTask(task)">Delete</button></td>
           </tr>
         </tbody>

@@ -22,7 +22,7 @@ window.fbAsyncInit = function() {
      if(response.status == 'connected'){
        localStorage.setItem('accessToken', response.authResponse.userID)
       //  localtion.reload()
-       window.location.href = "adminroom.html"
+      //  window.location.href = "adminroom.html"
        testAPI();
      } else {
        window.location.href = index.html

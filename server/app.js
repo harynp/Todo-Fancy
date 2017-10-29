@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', user);
+app.use('/login', user);
 app.use('/todos', todo);
 
 // catch 404 and forward to error handler
