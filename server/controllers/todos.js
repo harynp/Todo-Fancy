@@ -32,6 +32,7 @@ class Todos {
   }
 
   static updateTodo(req,res) {
+    console.log(req.body);
     Todo.findOneAndUpdate({
       _id: req.params.id
     }, {

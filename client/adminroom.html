@@ -23,7 +23,7 @@
 
   </script>
   <style>
-    .taskDone {
+    .taskStatus {
       text-decoration: line-through;
     }
   </style>
@@ -37,20 +37,19 @@
       <h1 class="text-center">Daftar Task Kamu</h1>
       <div class="panel panel-default">
         <h4 class='text-center'>Form New Add List</h4>
-        <form v-on:submit='addTask'>
+        <form>
           <div class="col-sm-4">
-            <input type="text" class='form-control' v-model='tasks.description' placeholder="Input Task">
+            <input type="text" class='form-control' v-model='item.description' placeholder="Input Task">
           </div>
           <div class="col-sm-4">
-            <input type="date" class='form-control' v-model='tasks.date' placeholder="Input Date">
+            <input type="date" class='form-control' v-model='item.date' placeholder="Input Date">
           </div>
           <div class="col-sm-4">
-            <input type="submit" value='Add' @click="addTask" class='btn btn-primary btn-block'>
+            <input type="button" value='Add' v-on:click="addTask" class='btn btn-primary btn-block'>
           </div>
         </form>
         &nbsp;
       </div>
-
       <table class="table">
         <thead>
           <th>Ceklist</th>
@@ -58,23 +57,21 @@
           <th>Date</th>
           <th>Delete</th>
         </thead>
-
         <tbody>
-          <tr v-for='task in tasks'>
-            <td><input type="checkbox" v-model="task.status"> Selesai </td>
+          <tr v-for='task in tasks' :class="{ taskStatus: task.status }">
+            <td><input type="checkbox" v-model="task.status"></td>
             <td><span>{{ task.description }}</span></td>
             <td><span>{{ task.date }}</span></td>
-            <td><button class="btn btn-danger btn-block" v-on:click="deleteTask(task)">Delete</button></td>
+            <!-- <td><button class="btn btn-danger btn-block" v-on:click="updateTask(task._id)">Tes</button></td> -->
+            <td><button class="btn btn-danger btn-block" v-on:click="deleteTask(task._id)">Delete</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <button class="btn btn-danger" v-on:click="logout()">LOGOUT</button>
+  <button class="btn btn-danger" onclick="logout()">LOGOUT</button>
   <script src="./assets/js/vue.js"></script>
-  <script src="./assets/js/fb.js">
-
-  </script>
+  <script src="./assets/js/fb.js"></script>
 </body>
 
 </html>

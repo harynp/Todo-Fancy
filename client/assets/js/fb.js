@@ -5,9 +5,9 @@ window.fbAsyncInit = function() {
       xfbml      : true,
       version    : 'v2.8'
     });
-    FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-    });
+    // FB.getLoginStatus(function(response) {
+    // statusChangeCallback(response);
+    // });
   };
 
   (function(d, s, id){
@@ -22,11 +22,11 @@ window.fbAsyncInit = function() {
      if(response.status == 'connected'){
        localStorage.setItem('accessToken', response.authResponse.userID)
       //  localtion.reload()
-      //  window.location.href = "adminroom.html"
+       window.location.href = "adminroom.html"
        testAPI();
      } else {
-       window.location.href = index.html
        console.log('Not Connected');
+        // window.location.href = index.html
      }
    }
 
@@ -47,5 +47,5 @@ window.fbAsyncInit = function() {
     function logout(){
       localStorage.removeItem('accessToken')
       // location.reload();
-      // window.location.href = index.html
+      window.location.href = 'index.html'
     }
