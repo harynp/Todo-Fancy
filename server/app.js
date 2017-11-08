@@ -12,7 +12,13 @@ var cors = require('cors');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/todos-fancy', { useMongoClient: true })
+mongoose.connect('mongodb://harynp:harynp@cluster0-shard-00-00-xaqgm.mongodb.net:27017,cluster0-shard-00-01-xaqgm.mongodb.net:27017,cluster0-shard-00-02-xaqgm.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin', (err) => {
+  if(err) {
+    console.log('database belum konek mas hary');
+  } else {
+    console.log('database connect mas hary');
+  }
+  })
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection
